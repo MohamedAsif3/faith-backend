@@ -54,3 +54,135 @@ VALIDATIONS
         1. Model level   ----> Models.py
         2. Serializer level  ------> Serializer.py
         3. Field level   ------>Serializer.py
+
+
+
+--ROSHAN'S 
+
+
+---- create a virtual environment---
+python -m venv myvenv
+
+---- activate the virtual environment-----
+cd \Scripts\activate
+
+---- create requiremnets .txt ----
+pip freeze > requiremnets.txt
+
+---- install the lib -----
+pip install -r requirements.txt
+
+-- tracking using git -------
+---- initialize git and create local repository ----
+git init
+
+-- create a git ignore file --
+.gitignore
+
+-- create a django project----
+django-admin startproject emsapiproj
+
+--> inside settings.py change DATABASES 
+
+-- command to run django  server by default port_no :8000 ---
+python manage.py runserver
+
+-- initializing classes to tables by django---
+python manage.py makemigrations 
+
+-- executing the initialized tables into database ---
+python manage.py migrate
+
+
+-- create a superuser to login to adminpanel
+python manage.py createsuperuser
+
+-- create Apps for each modules
+-- create Authentication , Emsbackendapp
+# code to create app ->   python manage.py startapp appname 
+
+python manage.py startapp emsbackendapp
+python manage.py startapp Authentication
+
+-- notify django about created Apps in Settings.py
+add emsbackendapp ,Authentication in settings.py ->Installed apps
+
+-- create Department class(model) in models.py under emsbackendapp
+create class under models.py in the emsbackendapp folder for each table
+
+-- perform makemigrations 
+-- perform migrate
+
+-- register the Departmentmodel in emsbackendapp > admin.py
+from .models import Department
+admin.site.register(Department)
+
+
+-- create serializer file for performing serialization and de-serialization for each model classes
+emsbackendapp >serializer.py
+
+-- create view
+-- create file urls.py under emsbackendapp
+-- add path of created /department
+
+-- add path of emsbackendapp to django urls.py
+
+18/02/2026
+
+-- create another model employee
+-- perform makemigrations
+-- perform migrate
+-- register the module to admin.py
+-- create serializer class EmployeeSerializer
+
+-- install pillow for images
+-- configure emsapiproj > settings.py for media
+-- alter emsapiproj > urls.py to concat the path for media
+
+-- created class based view emsbackendapp>views.py
+-- added the url path for the view
+
+-- 19-02-2026
+-- modified serialization.py to call department info instead of only id.
+
+-- VALIDATIONS
+
+DRF has 3 level validations:
+1. Model level --> models.py
+2. Serializer level -->serializer.py
+3. Field Level --> serializer.py
+
+-- created certificate model in models.py
+-- added manytomany foreignkey reference in employee to certificate
+-- created serializer class for the certificate module
+-- modify employee serializer to call certificate serializer
+-- created certificateViewSet in views.py
+-- update urls.py to add url of certificateViewSet
+
+
+
+
+-- 20-02-2026
+-- performing Authentication and Autherization in Autherization App
+-- add 'rest_framework.authtoken' to settings
+-- perform makemigrations and migrate
+-- import the token module in admin.py
+-- add additional rest_framework in settings.py
+-- create serializer file
+-- create login serializer
+-- create login view using APIView class
+-- to cretate token create signals in models.py
+-- (learn *args vs **kwargs)
+-- create urls.py under Authentication
+-- set urls for the cretaed LoginAPIView inurls.py
+-- update settings >urls.py
+
+-- create signup serializer
+-- create signup view
+-- create url for signup
+
+-- perform autherization 
+-- create a new file permissions.py
+-- create class IsAdminGroup
+-- override has_permission
+-- add the IsAdminGroup to emsbackendapp>views.py>permission_classes
