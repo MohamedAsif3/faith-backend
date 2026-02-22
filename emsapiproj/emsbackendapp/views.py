@@ -94,12 +94,16 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework import viewsets
 
 from Authentication.permissions import IsAdminGroup
+from rest_framework_simplejwt.authentication import JWTAuthentication
+
 class EmployeeViewSet(viewsets.ModelViewSet):
     """
     A viewset for viewing and editing employee instances.
     """
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
+    # permission_classes = [IsAuthenticated,IsAdminGroup]
+    authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated,IsAdminGroup]
 
     # def destroy(self, request, *args, **kwargs):
