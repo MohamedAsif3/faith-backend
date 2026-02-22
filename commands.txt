@@ -1,0 +1,56 @@
+--create a virtual env
+python -m venv myvenv
+
+--activate virtual env
+cd/scripts/activate
+
+--create requirements.txt
+pip freeze > requirements.txt
+
+--install the lib
+pip install -r requirements.txt
+
+--tracking using GIT
+
+--create a local repository
+git init
+
+--create .gitignore file
+
+--create django project
+django-admin startproject emsapiproj
+
+
+
+--to run the django server by default port_no: 8000
+python manage.py runserver
+
+
+python manage.py makemigrations
+python manage.py migrate
+
+
+--create a superuser to login adminpanel
+python manage.py createsuperuser
+
+--create Apps
+--create Authentication, emsbackendapp
+python manage.py startapp emsbackendapp
+python manage.py startapp Authentication
+
+--notify django about the created apps in settings.py
+--installed apps
+
+--create a department model: makemigrations,migrate
+--register the model in APP/admin.py
+
+
+
+
+VALIDATIONS
+
+    DRF has 3 LEVEL VALIDATION:
+
+        1. Model level   ----> Models.py
+        2. Serializer level  ------> Serializer.py
+        3. Field level   ------>Serializer.py
