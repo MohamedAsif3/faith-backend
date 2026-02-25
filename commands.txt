@@ -186,3 +186,12 @@ DRF has 3 level validations:
 -- create class IsAdminGroup
 -- override has_permission
 -- add the IsAdminGroup to emsbackendapp>views.py>permission_classes
+
+
+
+--perform Unit Testing for emsbackendapp
+--open emsbackendapp -> tests.py
+--create class DepartmentAPITest(APITestCase)
+--import from rest_framework.test import APITestCase
+--override SetUp method
+--write test cases for department methods (check on urls)
