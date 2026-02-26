@@ -20,7 +20,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-%5j5rlv2#kz^h)3@aebbs2e!*-47c8!wlh%1=w-rep^bvflz4#"
+# SECRET_KEY = "django-insecure-%5j5rlv2#kz^h)3@aebbs2e!*-47c8!wlh%1=w-rep^bvflz4#" --sonar correction
+import os
+
+SECRET_KEY = os.environ["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -156,7 +159,7 @@ from datetime import timedelta
 #     ),
 # }
 
-# SIMPLE_JWT = {
+# SIMPLE_JWT= {
 #     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
 #     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 #     'SLIDING_TOKEN_LIFETIME': timedelta(days=30),
